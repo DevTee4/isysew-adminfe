@@ -1,5 +1,5 @@
 import { Component, createRef } from "react";
-import DashboardHTML from "./DashboardHtml";
+import SettingsHTML from "./SettingsHtml";
 import Store, { AppKey } from '../../../Global/Store';
 import history from "../../Components/BrowserHistory";
 interface Props {
@@ -9,7 +9,7 @@ export interface PageState {
   openDrawer: boolean
 }
 
-export default class Dashboard extends Component<Props, PageState> {
+export default class Settings extends Component<Props, PageState> {
   store = new Store();
   displayMenu = [
     {
@@ -57,6 +57,6 @@ export default class Dashboard extends Component<Props, PageState> {
     history.push(`${route}`);
   }
   render() {
-    return DashboardHTML(this);
+    return SettingsHTML(this);
   }
 }

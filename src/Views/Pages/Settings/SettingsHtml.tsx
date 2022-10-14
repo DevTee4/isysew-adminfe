@@ -1,12 +1,12 @@
-import "./Dashboard.css";
-import Dashboard from "./Dashboard";
+import "./Settings.css";
+import Settings from "./Settings";
 import { Drawer, AppBar, IconButton, Toolbar, Box, CssBaseline, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, Grid } from "@mui/material";
 import { ChevronLeft, ChevronRight, Inbox, Mail, Menu } from "@mui/icons-material";
 
-const DashboardHTML = (pg: Dashboard) => {
+const SettingsHTML = (pg: Settings) => {
     const { openDrawer } = pg.state;
     return (
-        <div>
+        <Box>
             {/* <CssBaseline /> */}
             <Grid item xs={8}>
                 <AppBar
@@ -33,7 +33,6 @@ const DashboardHTML = (pg: Dashboard) => {
                 </AppBar>
             </Grid>
             {/* Sidebar */}
-            <Grid item xs={4}>
                 <Drawer
                     variant="permanent"
                     open={openDrawer}
@@ -52,7 +51,7 @@ const DashboardHTML = (pg: Dashboard) => {
                     </div>
                     <Divider />
                     <List>
-                        {pg.displayMenu.map((menu, index) => (
+                        {pg.displayMenu.map((menu:any) => (
                             <ListItem key={menu.name} disablePadding sx={{ display: 'block', color: '#05014e' }}>
                                 <ListItemButton
                                     onClick={() => pg.navigate(menu.url)}
@@ -77,37 +76,9 @@ const DashboardHTML = (pg: Dashboard) => {
                         ))}
                     </List>
                     <Divider />
-                    {/* <List>
-                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: openDrawer ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}
-                                >
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: openDrawer ? 3 : 'auto',
-                                            justifyContent: 'center',
-                                        }}
-                                    >
-                                        {index % 2 === 0 ? <Inbox /> : <Mail />}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} sx={{ opacity: openDrawer ? 1 : 0 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List> */}
                 </Drawer>
                 <div>div content</div>
-                {/* <Grid>grid content</Grid> */}
-            </Grid>
-        </div>
+        </Box>
     );
 };
-export default DashboardHTML;
-
-
+export default SettingsHTML;
